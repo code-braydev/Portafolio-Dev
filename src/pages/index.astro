@@ -1,343 +1,162 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Skills from "../components/Skills.astro";
+import Footer from "../components/Footer.astro";
 
-// TUS PROYECTOS DESTACADOS
-const projects = [
+const mainProjects = [
   {
-    title: "🤖 Ari Chatbot",
+    title: "📰 BrayNews Portal",
     description:
-      "Asistente de apoyo emocional con IA. Arquitectura RAG, memoria a largo plazo y análisis de sentimiento.",
-    tags: ["Next.js", "n8n", "Gemini API", "Supabase"],
-    link: "https://soyari.site",
-    color: "border-blue-500/50 hover:shadow-blue-500/20",
+      "Portal de noticias dinámico con SSR y optimización SEO. Arquitectura automatizada que pone a prueba el rendimiento en Node 24.",
+    tags: ["Astro", "Vercel", "SSR", "Tailwind"],
+    link: "https://braydev.xyz",
   },
   {
-    title: "⚡ TaskApp Monorepo",
+    title: "📡 Venus Engine",
     description:
-      "Ecosistema completo de gestión de tareas. Arquitectura escalable dividida en microservicios/paquetes.",
-    tags: ["TurboRepo", "Node.js", "Docker", "PostgreSQL"],
-    link: "https://taskapp-bray.vercel.app",
-    color: "border-purple-500/50 hover:shadow-purple-500/20",
+      "Orquestador Open Source para automatización RSS y procesamiento de datos. El motor detrás de la curación de contenido dinámico.",
+    tags: ["TypeScript", "Node.js", "Open Source"],
+    link: "https://venus.braydev.xyz",
+  },
+];
+
+const labProjects = [
+  {
+    title: "⚡ TaskApp Full-Stack",
+    description: "Práctica de comunicación cliente-servidor y manejo de CORS.",
+    tags: ["React", "Express", "Node.js"],
+    link: "https://github.com/code-braydev/taskapp",
+    isLab: true,
   },
   {
-    title: "🎨 Design Exams App",
-    description:
-      "Plataforma universitaria para gestión y presentación de exámenes de diseño. UI/UX optimizada.",
-    tags: ["React", "Tailwind", "Figma"],
-    link: "https://brayanavila14.github.io/exams-design/",
-    color: "border-pink-500/50 hover:shadow-pink-500/20",
+    title: "🛒 Nuxt E-Commerce bstore",
+    description: "Simulador de tienda para explorar Server-Side Rendering.",
+    tags: ["Nuxt.js", "Vue", "Vuetify"],
+    link: "https://github.com/code-braydev/bstore",
+    isLab: true,
   },
   {
-    title: "🌐 BrayDev Portfolio",
+    title: "🚦 Semáforo Reactivo",
     description:
-      "Mi marca personal digital. Optimizado para SEO, rendimiento perfecto y modo oscuro nativo.",
-    tags: ["Astro", "Tailwind", "Vercel"],
-    link: "https://brayanaviladev.vercel.app/",
-    color: "border-green-500/50 hover:shadow-green-500/20",
+      "Laboratorio de reactividad pura y manejo avanzado de ciclos de vida.",
+    tags: ["Vue", "Reactivity"],
+    link: "https://github.com/code-braydev/semaforo",
+    isLab: true,
+  },
+  {
+    title: "🎨 Exams Design Platform",
+    description:
+      "Plataforma de gestión. Práctica de DOM y maquetación sin frameworks.",
+    tags: ["Vanilla JS", "DOM", "HTML/CSS"],
+    link: "https://github.com/code-braydev/exams-design",
+    isLab: true,
+  },
+  {
+    title: "✖️ Tic-Tac-Toe",
+    description:
+      "El clásico juego desarrollado desde cero para dominar estados complejos.",
+    tags: ["React", "Hooks", "State"],
+    link: "https://github.com/code-braydev/React/tree/main/projects/01-tic-tac-toe",
+    isLab: true,
+  },
+  {
+    title: "🧮 Calculadora Lógica",
+    description:
+      "Construcción algorítmica y parsing de operaciones matemáticas.",
+    tags: ["Vanilla JS", "Algorithms"],
+    link: "https://github.com/code-braydev/calculadora",
+    isLab: true,
   },
 ];
 ---
 
-<Layout title="BrayDev | Data Engineer & Full Stack">
-  <nav
-    class="flex justify-between items-center py-6 px-4 max-w-6xl mx-auto w-full"
-  >
-    <div class="font-bold text-2xl tracking-tighter flex items-center gap-2">
-      <img src="/logotipo.png" alt="BrayDev Logo" class="h-16" />
-    </div>
-    <div class="flex gap-4">
-      <a
-        href="https://github.com/brayanavila14"
-        target="_blank"
-        class="opacity-80 hover:opacity-100 transition"
-      >
-        <i class="fab fa-github text-xl"></i>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/brayan-avila-1223bb26b/"
-        target="_blank"
-        class="opacity-80 hover:opacity-100 transition"
-      >
-        <i class="fab fa-linkedin text-xl"></i>
-      </a>
-    </div>
-  </nav>
+<Layout title="BrayDev | Full Stack Developer & Technical Educator">
+  <Header />
+  <main class="max-w-7xl mx-auto px-4">
+    <Hero />
 
-  <main class="max-w-6xl mx-auto px-4">
-    <section
-      class="min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between gap-12 py-20"
-    >
-      <div class="flex-1 space-y-6 text-center md:text-left">
-        <span
-          class="inline-block py-1 px-3 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-sm font-medium mb-2"
-        >
-          🚀 Disponible para proyectos
-        </span>
-
-        <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-          Hola, soy <br />
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
-          >
-            Brayan Avila
-          </span>
-        </h1>
-
-        <p
-          class="text-slate-400 text-lg md:text-xl max-w-lg mx-auto md:mx-0 leading-relaxed"
-        >
-          Ingeniero de Datos en formación y Desarrollador Full Stack. Creo
-          soluciones escalables usando <span class="text-white font-semibold"
-            >IA, Linux y la Nube</span
-          >.
-        </p>
-
-        <div
-          class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4"
-        >
-          <div
-            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6 items-center"
-          >
-            <a
-              href="https://ko-fi.com/braydev"
-              target="_blank"
-              class="w-full sm:w-auto px-8 py-3.5 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-2xl transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(250,204,21,0.2)]"
-            >
-              <i class="fas fa-coffee"></i> Invitame un Café
-            </a>
-
-            <a
-              href="#proyectos"
-              class="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.2)]"
-            >
-              Ver Proyectos <i class="fas fa-arrow-down"></i>
-            </a>
-
-            <a
-              href="#sobre-mi"
-              class="mt-2 sm:mt-0 px-4 text-slate-400 hover:text-white font-medium transition-colors flex items-center gap-2 text-sm group"
-            >
-              Sobre mí <i
-                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
-              ></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex-1 flex justify-center md:justify-end relative">
-        <div class="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full">
-        </div>
-
-        <img
-          src="/me.jpg"
-          alt="Brayan Avila"
-          class="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-[2rem] rotate-3 border-4 border-slate-800 shadow-2xl z-10 hover:rotate-0 transition-all duration-500"
-        />
+    <section id="proyectos" class="py-20">
+      <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+        <i class="fas fa-rocket text-blue-500"></i> Proyectos Destacados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {mainProjects.map((p) => <ProjectCard {...p} />)}
       </div>
     </section>
 
-    <div class="py-10 border-y border-slate-800/50 mb-20 overflow-hidden">
-      <p
-        class="text-center text-slate-500 text-sm mb-6 tracking-widest uppercase"
-      >
-        Mi Stack Tecnológico
-      </p>
-      <div
-        class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
-      >
-        <i class="fab fa-react text-4xl hover:text-blue-400 transition"></i>
-        <i class="fab fa-node text-4xl hover:text-green-500 transition"></i>
-        <i class="fab fa-python text-4xl hover:text-yellow-400 transition"></i>
-        <i class="fab fa-linux text-4xl hover:text-white transition"></i>
-        <i class="fab fa-docker text-4xl hover:text-blue-500 transition"></i>
-        <i class="fas fa-database text-4xl hover:text-orange-400 transition"
-        ></i>
+    <Skills />
+
+    <section class="py-20 border-t border-slate-900">
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-2 flex items-center gap-4">
+          <i class="fas fa-code text-slate-500"></i> Fundamentos & Repositorios
+        </h2>
+        <p class="text-slate-500">
+          Exploraciones técnicas, aprendizaje de frameworks y código fuente
+          directo en GitHub.
+        </p>
       </div>
-    </div>
-
-    <section id="proyectos" class="pb-32">
-      <h2 class="text-4xl font-bold mb-12 text-center">
-        Proyectos <span class="text-blue-500">Destacados</span>
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {
-          projects.map((project) => (
-            <a
-              href={project.link}
-              target="_blank"
-              class={`group relative p-8 bg-slate-900/50 border ${project.color} rounded-3xl transition-all hover:-translate-y-2 overflow-hidden`}
-            >
-              <div class="relative z-10">
-                <div class="flex justify-between items-start mb-4">
-                  <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <i class="fas fa-external-link-alt text-slate-500 group-hover:text-white transition" />
-                </div>
-                <p class="text-slate-400 mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-full border border-slate-700">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </a>
-          ))
-        }
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {labProjects.map((p) => <ProjectCard {...p} isLab={true} />)}
       </div>
     </section>
     <section id="sobre-mi" class="py-24 border-t border-slate-900">
-      <div class="flex flex-col md:flex-row gap-16 items-start">
-        <div
-          class="flex-1 space-y-6 text-slate-400 text-lg leading-relaxed text-pretty"
-        >
-          <h2
-            class="text-4xl font-bold text-white mb-8 flex items-center gap-3"
-          >
-            Sobre <span class="text-blue-500">Mí</span>
-            <i class="fas fa-user-astronaut text-2xl text-slate-700"></i>
-          </h2>
+      <div class="max-w-3xl">
+        <h2 class="text-4xl font-bold mb-8">
+          Sobre <span class="text-blue-500">mi</span>
+        </h2>
 
-          <p>
-            ¡Hola! Soy <strong class="text-white">Brayan Avila</strong>. Mi
-            perfil es híbrido: tengo la lógica de un <strong
-              class="text-blue-400">Desarrollador Full Stack</strong
-            > y la curiosidad técnica de un SysAdmin.
-          </p>
-          <p>
-            Mi fuerte es el ecosistema <strong>JavaScript/TypeScript</strong>.
-            Me muevo con fluidez creando arquitecturas complejas con <strong
-              >React, Next.js y Node.js</strong
-            >. En el backend, diseño APIs y gestiono bases de datos SQL y NoSQL.
-          </p>
-          <p>
-            Más allá del código, entiendo <strong>cómo funciona internet</strong
-            >. No solo programo la app, sino que configuro el servidor Linux
-            (SSH), gestiono los dominios/DNS, optimizo el SEO y orquesto el
-            despliegue en Vercel o VPS propios.
-            <span class="block mt-2 text-sm text-slate-500 italic"
-              >*Actualmente profundizando en Python para automatización y
-              Datos.*</span
-            >
-          </p>
+        <p class="text-slate-400 text-lg leading-relaxed mb-6">
+          Soy <strong class="text-white">Brayan David Avila Orozco</strong>,
+          nacido y forjado en <strong class="text-white"
+            >Montería, Córdoba - Colombia</strong
+          >. Mi historia con el código despertó a los 15 años impulsada por pura
+          curiosidad; desde entonces, lo que empezó como un juego se convirtió
+          en mi vocación. Di mis primeros pasos formales graduándome como <strong
+            class="text-blue-400"
+            >Técnico en Programación de Software en el SENA</strong
+          >, y desde ahí la consola de comandos se volvió mi segundo hogar.
+        </p>
 
-          <div class="pt-4 flex flex-wrap gap-6 text-base font-medium">
-            <a
-              href="mailto:brayandavidavilaorozco@gmail.com"
-              class="flex items-center gap-2 text-slate-300 hover:text-yellow-400 transition"
-            >
-              <i class="fas fa-envelope text-blue-500"></i> Contáctame
-            </a>
-            <span class="flex items-center gap-2 text-slate-300">
-              <i class="fas fa-map-marker-alt text-red-500"></i> Montería, CO
-            </span>
-          </div>
-        </div>
+        <p class="text-slate-400 text-lg leading-relaxed mb-6">
+          Como estudiante de la <strong class="text-white"
+            >Universidad de Córdoba</strong
+          >, mi enfoque no es solo construir, sino entender el porqué de cada
+          línea. Me apasiona la <strong class="text-blue-400"
+            >docencia técnica</strong
+          >: creo firmemente que la maestría tecnológica se demuestra cuando
+          eres capaz de explicar una arquitectura compleja o un flujo de datos
+          de forma sencilla.
+        </p>
 
-        <div
-          class="w-full md:w-[400px] bg-slate-900/40 p-8 rounded-3xl border border-slate-800 backdrop-blur-sm"
-        >
-          <h3
-            class="text-xl font-bold text-white mb-6 border-b border-slate-800 pb-4"
-          >
-            Arsenal Técnico
-          </h3>
+        <p class="text-slate-400 text-lg leading-relaxed mb-6">
+          Mi formación técnica se forjó bajo fuego. Aprendí a optimizar recursos
+          en hardware limitado, lo que me llevó a dominar la terminal <strong
+            class="text-white">Linux</strong
+          > (desde Debian hasta la rigurosa instalación manual de <strong
+            class="text-white">Arch</strong
+          >). Esa base pura me permite hoy moverme con fluidez en entornos
+          híbridos con <strong class="text-blue-400">WSL</strong>, gestionar
+          servidores remotos vía <strong class="text-purple-400">SSH</strong>,
+          orquestar servicios en <strong class="text-blue-400">Docker</strong> y automatizar
+          procesos con IA y scripts en Python sin depender de "cajas negras".
+        </p>
 
-          <div class="space-y-6">
-            <div>
-              <span
-                class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block"
-                >Lenguajes Core</span
-              >
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-lg text-sm border border-yellow-400/20"
-                  >JavaScript (ES6+)</span
-                >
-                <span
-                  class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-lg text-sm border border-blue-500/20"
-                  >TypeScript</span
-                >
-                <span
-                  class="px-3 py-1 bg-blue-400/10 text-blue-200 rounded-lg text-sm border border-blue-400/20"
-                  >Python (Básico)</span
-                >
-                <span
-                  class="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-lg text-sm"
-                  >SQL</span
-                >
-              </div>
-            </div>
-
-            <div>
-              <span
-                class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block"
-                >Web & Backend</span
-              >
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-slate-800 text-white rounded-lg text-sm"
-                  >React / Next.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-slate-800 text-white rounded-lg text-sm"
-                  >Astro</span
-                >
-                <span
-                  class="px-3 py-1 bg-slate-800 text-slate-400 rounded-lg text-sm"
-                  >Vue (Básico)</span
-                >
-                <span
-                  class="px-3 py-1 bg-green-900/20 text-green-400 rounded-lg text-sm border border-green-900/30"
-                  >Node.js / Express</span
-                >
-              </div>
-            </div>
-
-            <div>
-              <span
-                class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block"
-                >Infra & Deploy</span
-              >
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-blue-600/10 text-blue-400 rounded-lg text-sm border border-blue-600/20"
-                  >Docker</span
-                >
-                <span
-                  class="px-3 py-1 bg-slate-800 text-slate-200 rounded-lg text-sm"
-                  >Linux (SSH/Server)</span
-                >
-                <span
-                  class="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-lg text-sm"
-                  >n8n</span
-                >
-                <span
-                  class="px-3 py-1 bg-slate-800 text-slate-200 rounded-lg text-sm"
-                  >Supabase</span
-                >
-                <span
-                  class="px-3 py-1 bg-white/10 text-white rounded-lg text-sm"
-                  >SEO & Dominios</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="text-slate-400 text-lg leading-relaxed">
+          Desde levantar un backend robusto hasta procesar analítica de datos o
+          maquetar una interfaz intuitiva, mi compromiso es encontrar la <strong
+            class="text-green-400">mejor solución técnica</strong
+          >, no la más rápida de copiar. Mi portafolio refleja esta filosofía:
+          proyectos que no solo funcionan, sino que tienen detrás un proceso
+          real de investigación. Si el código se detiene, mi investigación
+          continúa.
+        </p>
       </div>
     </section>
   </main>
-  <footer
-    class="py-10 text-center text-slate-500 text-sm border-t border-slate-900"
-  >
-    <p>
-      &copy; {new Date().getFullYear()} BrayDev. Hecho con Astro & Tailwind.
-    </p>
-  </footer>
+
+  <Footer />
 </Layout>

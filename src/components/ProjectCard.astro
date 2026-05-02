@@ -1,0 +1,58 @@
+---
+// src/components/ProjectCard.astro
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  isLab?: boolean;
+}
+const { title, description, tags, link, isLab = false } = Astro.props;
+---
+
+<a
+  href={link}
+  target="_blank"
+  class={`group relative p-8 bg-slate-900/40 border ${isLab ? "border-slate-800 opacity-90" : "border-blue-500/20"} rounded-3xl transition-all hover:-translate-y-2 hover:bg-slate-900/60 block`}
+>
+  <div class="relative z-10">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        {
+          isLab && (
+            <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1 block">
+              Fundamentos / Code
+            </span>
+          )
+        }
+        <h3
+          class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors"
+        >
+          {title}
+        </h3>
+      </div>
+      <!-- Lógica: Si es de laboratorio muestra GitHub, si es destacado muestra External Link -->
+      {
+        isLab ? (
+          <i class="fab fa-github text-2xl text-slate-500 group-hover:text-white transition" />
+        ) : (
+          <i class="fas fa-external-link-alt text-slate-500 group-hover:text-white transition" />
+        )
+      }
+    </div>
+
+    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+      {description}
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {
+        tags.map((tag) => (
+          <span class="px-2 py-1 text-[10px] font-bold bg-slate-800 text-slate-300 rounded-md border border-slate-700 uppercase">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</a>

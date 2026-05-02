@@ -1,22 +1,52 @@
 ---
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  keywords?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "BrayDev - Full Stack Developer & Technical Educator. Especialista en soluciones eficientes mediante investigación técnica. Si el código se detiene, mi investigación continúa.",
+  image = "/logo.png",
+  keywords = "Brayan Avila, BrayDev, Brayan Desarrollador, Montería, Full Stack Developer, Technical Educator, Astro, React, NestJS, TypeScript, Educación Tecnológica, Universidad de Córdoba",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Portafolio de BrayDev - Ingeniero de Datos & Full Stack"
-    />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Brayan Avila" />
+    <meta name="creator" content="BrayDev" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="BrayDev" />
+    <meta property="og:locale" content="es_ES" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:creator" content="@BrayDev" />
+
     <link rel="icon" type="image/png" href="/logo.png" />
-    <title>{title}</title>
+    <link rel="apple-touch-icon" href="/logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,16 +59,39 @@ const { title } = Astro.props;
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8640842574866935"
-      crossorigin="anonymous"></script>
+
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Brayan Avila",
+        "alternateName": ["BrayDev", "Brayan Desarrollador"],
+        "url": "https://portfolio.braydev.xyz",
+        "image": "https://portfolio.braydev.xyz/logo.png",
+        "jobTitle": "Full Stack Developer & Technical Educator",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "BrayDev"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad de Córdoba"
+        },
+        "sameAs": [
+          "https://github.com/code-braydev",
+          "https://www.linkedin.com/in/braydev/"
+        ],
+        "description": "Desarrollador Full Stack y Licenciado en formación especializado en soluciones eficientes mediante investigación técnica aplicada."
+      }
+    </script>
+
+    <title>{title}</title>
   </head>
   <body
-    class="bg-[#0a0a0a] text-white font-['Onest'] selection:bg-blue-500 selection:text-white overflow-x-hidden"
+    class="bg-[#0a0a0a] text-white font-['Onest'] selection:bg-blue-500/30 selection:text-white overflow-x-hidden"
   >
     <div
-      class="fixed top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.3),rgba(255,255,255,0))]"
+      class="fixed top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.15),rgba(168,85,247,0.05),transparent)]"
     >
     </div>
     <slot />
