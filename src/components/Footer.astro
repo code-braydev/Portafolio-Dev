@@ -3,7 +3,30 @@
 ---
 
 <footer
-  class="py-20 text-center text-slate-600 text-sm border-t border-slate-900"
+  class="py-12 border-t border-slate-200 dark:border-slate-900 bg-white/60 dark:bg-transparent"
 >
-  <p>&copy; {new Date().getFullYear()} BrayDev. Montería, Colombia.</p>
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4 text-center"
+  >
+    <a href="#inicio" class="flex items-center gap-2.5">
+      <img src="/logo.svg" alt="Logo de BrayDev" class="h-8 w-auto" />
+      <span
+        class="font-bold text-lg tracking-tighter text-slate-900 dark:text-white"
+      >
+        bray<span class="text-blue-500">dev</span><span class="text-purple-500"
+          >.</span
+        >
+      </span>
+    </a>
+
+    <p
+      class="text-sm text-slate-500 dark:text-slate-600 flex items-center gap-2"
+    >
+      Hecho con <i class="fas fa-heart text-red-500"></i> en Astro & Tailwind
+    </p>
+
+    <p class="text-sm text-slate-500 dark:text-slate-600">
+      &copy; {new Date().getFullYear()} BrayDev · Montería, Colombia.
+    </p>
+  </div>
 </footer>

@@ -1,111 +1,91 @@
 ---
-
+const cards = [
+  {
+    title: "OS & Infraestructura",
+    icon: "fab fa-linux",
+    accent: "text-yellow-500",
+    border: "hover:border-yellow-400/60 dark:hover:border-yellow-500/40",
+    chips: [
+      { label: "Linux Nativo & WSL", cls: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20" },
+      { label: "SSH Master", cls: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700" },
+      { label: "Docker", cls: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
+      { label: "Apache / nginx", cls: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20" },
+      { label: "Máquinas Virtuales", cls: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700" },
+      { label: "n8n / Automatización", cls: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20" },
+      { label: "AWS VPS / Cloud", cls: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20" },
+      { label: "Vercel", cls: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700" },
+      { label: "Git & CI/CD", cls: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20" },
+    ],
+  },
+  {
+    title: "Backend & Datos",
+    icon: "fas fa-database",
+    accent: "text-purple-500",
+    border: "hover:border-purple-400/60 dark:hover:border-purple-500/40",
+    chips: [
+      { label: "JavaScript", cls: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20" },
+      { label: "TypeScript", cls: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
+      { label: "Node.js / Express", cls: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20" },
+      { label: "NestJS", cls: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20" },
+      { label: "Python (Datos & IA)", cls: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20" },
+      { label: "PostgreSQL / SQL", cls: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
+      { label: "MySQL", cls: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20" },
+      { label: "Supabase / Prisma", cls: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20" },
+    ],
+  },
+  {
+    title: "Frontend & IA",
+    icon: "fas fa-layer-group",
+    accent: "text-cyan-500",
+    border: "hover:border-cyan-400/60 dark:hover:border-cyan-500/40",
+    chips: [
+      { label: "React / Next.js", cls: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20" },
+      { label: "Astro", cls: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20" },
+      { label: "Vue / Nuxt", cls: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20" },
+      { label: "Tailwind CSS", cls: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
+      { label: "Electron / Vite", cls: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700" },
+      { label: "Expo / React Native", cls: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700" },
+      { label: "IA & Autogeneración", cls: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20" },
+    ],
+  },
+];
 ---
 
-<section class="py-20 border-t border-slate-900">
-  <div class="mb-12">
-    <h2 class="text-3xl font-bold mb-2 flex items-center gap-4">
-      <i class="fas fa-server text-blue-400"></i> Stack & Infraestructura
-    </h2>
-    <p class="text-slate-500">
-      Herramientas que domino para construir, orquestar y desplegar software a
-      medida.
-    </p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div
-      class="p-8 bg-slate-900/40 rounded-3xl border border-yellow-500/20 hover:bg-slate-900/60 transition group"
-    >
-      <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-        <i
-          class="fab fa-linux text-2xl text-yellow-500 group-hover:scale-110 transition-transform"
-        ></i> OS & Infra
-      </h3>
-      <div class="flex flex-wrap gap-2">
-        <span
-          class="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-lg text-sm border border-yellow-500/20"
-          >Linux Nativo & WSL</span
-        >
-        <span class="px-3 py-1 bg-slate-800 text-slate-200 rounded-lg text-sm"
-          >SSH Master</span
-        >
-        <span
-          class="px-3 py-1 bg-blue-600/10 text-blue-400 rounded-lg text-sm border border-blue-600/20"
-          >Docker / n8n</span
-        >
-        <span
-          class="px-3 py-1 bg-orange-500/10 text-orange-400 rounded-lg text-sm border border-orange-500/20"
-          >AWS VPS / Cloud</span
-        >
-        <span class="px-3 py-1 bg-slate-800 text-white rounded-lg text-sm"
-          >Vercel</span
-        >
-      </div>
+<section id="stack" class="py-24 border-t border-slate-200 dark:border-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="reveal mb-14">
+      <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">// arsenal</span>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2 flex items-center gap-4">
+        <i class="fas fa-server text-blue-500"></i> Stack & Infraestructura
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-3 max-w-2xl">
+        Herramientas que domino para construir, orquestar y desplegar software a
+        medida — del servidor Linux a la última capa de interfaz.
+      </p>
     </div>
 
-    <div
-      class="p-8 bg-slate-900/40 rounded-3xl border border-purple-500/20 hover:bg-slate-900/60 transition group"
-    >
-      <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-        <i
-          class="fas fa-database text-2xl text-purple-400 group-hover:scale-110 transition-transform"
-        ></i> Backend & Data
-      </h3>
-      <div class="flex flex-wrap gap-2">
-        <span
-          class="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-lg text-sm border border-yellow-500/20"
-          >JavaScript</span
-        >
-        <span
-          class="px-3 py-1 bg-blue-600/10 text-blue-400 rounded-lg text-sm border border-blue-600/20"
-          >TypeScript</span
-        >
-        <span
-          class="px-3 py-1 bg-green-900/20 text-green-400 rounded-lg text-sm border border-green-900/30"
-          >Node.js / Express</span
-        >
-        <span
-          class="px-3 py-1 bg-red-900/20 text-red-400 rounded-lg text-sm border border-red-900/30"
-          >NestJS</span
-        >
-        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm"
-          >Supabase / Prisma</span
-        >
-      </div>
-    </div>
-
-    <div
-      class="p-8 bg-slate-900/40 rounded-3xl border border-cyan-500/20 hover:bg-slate-900/60 transition group"
-    >
-      <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-        <i
-          class="fas fa-layer-group text-2xl text-cyan-400 group-hover:scale-110 transition-transform"
-        ></i> Frontend
-      </h3>
-      <div class="flex flex-wrap gap-2">
-        <span
-          class="px-3 py-1 bg-cyan-900/20 text-cyan-400 rounded-lg text-sm border border-cyan-900/30"
-          >React / Next.js</span
-        >
-        <span
-          class="px-3 py-1 bg-orange-900/20 text-orange-400 rounded-lg text-sm border border-orange-900/30"
-          >Astro</span
-        >
-        <span
-          class="px-3 py-1 bg-emerald-900/20 text-emerald-400 rounded-lg text-sm border border-emerald-900/30"
-          >Vue / Nuxt</span
-        >
-        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm"
-          >Expo / React Native</span
-        >
-        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm"
-          >Electron / Vite</span
-        >
-        <span class="px-3 py-1 bg-slate-800 text-blue-300 rounded-lg text-sm"
-          >Tailwind CSS</span
-        >
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        cards.map((card) => (
+          <div
+            class={`reveal p-8 rounded-3xl bg-white/70 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:bg-white dark:hover:bg-slate-900/60 ${card.border}`}
+          >
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+              <i class={`${card.icon} text-2xl ${card.accent}`}></i>
+              {card.title}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {
+                card.chips.map((chip) => (
+                  <span class={`px-3 py-1.5 rounded-lg text-sm font-medium border ${chip.cls}`}>
+                    {chip.label}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

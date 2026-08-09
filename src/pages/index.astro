@@ -4,158 +4,216 @@ import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Skills from "../components/Skills.astro";
+import Timeline from "../components/Timeline.astro";
+import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 
 const mainProjects = [
   {
-    title: "📰 BrayNews Portal",
+    title: "BrayNews Portal",
     description:
       "Portal de noticias dinámico con SSR y optimización SEO. Arquitectura automatizada que pone a prueba el rendimiento en Node 24.",
     tags: ["Astro", "Vercel", "SSR", "Tailwind"],
     link: "https://braydev.xyz",
+    icon: "📰",
   },
   {
-    title: "📡 Venus Engine",
+    title: "Venus Engine",
     description:
-      "Orquestador Open Source para automatización RSS y procesamiento de datos. El motor detrás de la curación de contenido dinámico.",
-    tags: ["TypeScript", "Node.js", "Open Source"],
+      "Librería de networking ligera y moderna que convierte patrones complejos de fetch en una experiencia calmada y predecible, con su propio frontend.",
+    tags: ["TypeScript", "Networking", "Open Source"],
     link: "https://venus.braydev.xyz",
+    icon: "🛰️",
+  },
+  {
+    title: "BetweenWords",
+    description:
+      "Simulador de Sistema Operativo. Una decisión de ingeniería estratégica que evolucionó desde la lógica de juego hasta la simulación de un OS completo.",
+    tags: ["Vue", "OS Simulator", "State"],
+    link: "https://github.com/code-braydev/BetweenWords-Web",
+    icon: "🖥️",
+  },
+  {
+    title: "Ari · Asistente IA",
+    description:
+      "Asistente de apoyo emocional con IA. Arquitectura RAG, memoria a largo plazo y análisis de sentimiento, con landing page dedicada.",
+    tags: ["Astro", "IA", "RAG", "n8n"],
+    link: "https://github.com/code-braydev/ari-pages",
+    icon: "🤖",
   },
 ];
 
 const labProjects = [
   {
-    title: "⚡ TaskApp Full-Stack",
-    description: "Práctica de comunicación cliente-servidor y manejo de CORS.",
+    title: "TaskApp Full-Stack",
+    description:
+      "Ecosistema de gestión de tareas con autenticación segura y arquitectura monorepo.",
     tags: ["React", "Express", "Node.js"],
     link: "https://github.com/code-braydev/taskapp",
     isLab: true,
+    icon: "⚡",
   },
   {
-    title: "🛒 Nuxt E-Commerce bstore",
-    description: "Simulador de tienda para explorar Server-Side Rendering.",
+    title: "Exams Design Platform",
+    description:
+      "Plataforma universitaria para gestión y presentación de exámenes de diseño, solo con JS puro.",
+    tags: ["Vanilla JS", "DOM", "HTML/CSS"],
+    link: "https://github.com/code-braydev/exams-design",
+    isLab: true,
+    icon: "🎨",
+  },
+  {
+    title: "Nuxt E-Commerce bstore",
+    description:
+      "Simulador de tienda para explorar Server-Side Rendering.",
     tags: ["Nuxt.js", "Vue", "Vuetify"],
     link: "https://github.com/code-braydev/bstore",
     isLab: true,
+    icon: "🛒",
   },
   {
-    title: "🚦 Semáforo Reactivo",
+    title: "Semáforo Reactivo",
     description:
       "Laboratorio de reactividad pura y manejo avanzado de ciclos de vida.",
     tags: ["Vue", "Reactivity"],
     link: "https://github.com/code-braydev/semaforo",
     isLab: true,
+    icon: "🚦",
   },
   {
-    title: "🎨 Exams Design Platform",
-    description:
-      "Plataforma de gestión. Práctica de DOM y maquetación sin frameworks.",
-    tags: ["Vanilla JS", "DOM", "HTML/CSS"],
-    link: "https://github.com/code-braydev/exams-design",
-    isLab: true,
-  },
-  {
-    title: "✖️ Tic-Tac-Toe",
+    title: "Tic-Tac-Toe",
     description:
       "El clásico juego desarrollado desde cero para dominar estados complejos.",
     tags: ["React", "Hooks", "State"],
     link: "https://github.com/code-braydev/React/tree/main/projects/01-tic-tac-toe",
     isLab: true,
+    icon: "✖️",
   },
   {
-    title: "🧮 Calculadora Lógica",
+    title: "Calculadora Lógica",
     description:
       "Construcción algorítmica y parsing de operaciones matemáticas.",
     tags: ["Vanilla JS", "Algorithms"],
     link: "https://github.com/code-braydev/calculadora",
     isLab: true,
+    icon: "🧮",
   },
 ];
 ---
 
-<Layout title="BrayDev | Full Stack Developer & Technical Educator">
+<Layout title="BrayDev | Full Stack Developer — IA, Datos y Linux">
   <Header />
-  <main class="max-w-7xl mx-auto px-4">
+
+  <main>
     <Hero />
 
-    <section id="proyectos" class="py-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-        <i class="fas fa-rocket text-blue-500"></i> Proyectos Destacados
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {mainProjects.map((p) => <ProjectCard {...p} />)}
+    <section id="proyectos" class="py-24 border-t border-slate-200 dark:border-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="reveal mb-12">
+          <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">// proyectos</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mt-2 flex items-center gap-4">
+            <i class="fas fa-rocket text-blue-500"></i> Proyectos Destacados
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-3 max-w-2xl">
+            Soluciones reales, activas y en producción, construidas con
+            investigación técnica detrás de cada decisión.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {mainProjects.map((p) => <ProjectCard {...p} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 border-t border-slate-200 dark:border-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="reveal mb-12">
+          <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">// código abierto</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mt-2 flex items-center gap-4">
+            <i class="fas fa-code text-slate-400"></i> Fundamentos & Repositorios
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-3 max-w-2xl">
+            Exploraciones técnicas, aprendizaje de frameworks y código fuente
+            directo en GitHub.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {labProjects.map((p) => <ProjectCard {...p} />)}
+        </div>
       </div>
     </section>
 
     <Skills />
+    <Timeline />
 
-    <section class="py-20 border-t border-slate-900">
-      <div class="mb-12">
-        <h2 class="text-3xl font-bold mb-2 flex items-center gap-4">
-          <i class="fas fa-code text-slate-500"></i> Fundamentos & Repositorios
-        </h2>
-        <p class="text-slate-500">
-          Exploraciones técnicas, aprendizaje de frameworks y código fuente
-          directo en GitHub.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {labProjects.map((p) => <ProjectCard {...p} isLab={true} />)}
+    <section id="sobre-mi" class="py-24 border-t border-slate-200 dark:border-slate-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="reveal mb-12">
+          <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">// quien soy</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mt-2 flex items-center gap-4">
+            Sobre <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">mí</span>
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          <p class="reveal text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+            Soy <strong class="text-slate-900 dark:text-white">Brayan David Avila Orozco</strong>,
+            nacido y forjado en <strong class="text-slate-900 dark:text-white">Montería, Córdoba — Colombia</strong>.
+            Mi historia con el código despertó a los 15 años impulsada por pura curiosidad; desde
+            entonces, lo que empezó como un juego se convirtió en mi vocación. Mi perfil es híbrido:
+            la lógica de un <strong class="text-blue-600 dark:text-blue-400">Desarrollador Full Stack</strong> y
+            la curiosidad de un <strong class="text-purple-600 dark:text-purple-400">SysAdmin</strong>.
+          </p>
+
+          <p class="reveal text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+            Mi fuerte es el ecosistema <strong class="text-slate-900 dark:text-white">JavaScript/TypeScript</strong>.
+            Creo arquitecturas complejas con React, Next.js y Node.js, diseño APIs y gestiono bases de
+            datos SQL y NoSQL. Pero más allá del código, entiendo cómo funciona internet: configuro el
+            servidor Linux, administro dominios y DNS, orquesto despliegues y automatizo procesos con
+            <strong class="text-blue-600 dark:text-blue-400">IA y scripts en Python</strong> sin depender
+            de "cajas negras".
+          </p>
+
+          <p class="reveal text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+            Mi formación es el resultado de un camino que empezó con fundamentos: en el
+            <strong class="text-slate-900 dark:text-white">SENA</strong> aprendí la base —
+            JavaScript y SQL (MySQL), todavía sin proyectos reales. Al salir, la curiosidad me
+            empujó a más: descubrí que jQuery estaba quedando obsoleto y me lancé de lleno a los
+            frameworks; <strong class="text-blue-600 dark:text-blue-400">React</strong> fue mi
+            primer framework, aprendido en YouTube gracias a midudev. Ya en la
+            <strong class="text-slate-900 dark:text-white">Universidad de Córdoba</strong>, donde
+            curso la <strong class="text-blue-600 dark:text-blue-400">Licenciatura en Informática</strong>,
+            profundicé en <strong class="text-slate-900 dark:text-white">Vue/Nuxt</strong> y llevé
+            Linux al siguiente nivel con electivas de Linux Básico y Linux Avanzado orientado a
+            servidores — máquinas virtuales, Asterisk, cPanel, Apache y nginx. Hoy completo ese
+            perfil con <strong class="text-blue-600 dark:text-blue-400">Análisis de Datos</strong>
+            (MinTIC-UTB) y <strong class="text-blue-600 dark:text-blue-400">Desarrollo con IA</strong>
+            (MoureDev).
+          </p>
+
+          <div class="reveal flex flex-wrap gap-2 pt-2">
+            {
+              ["JS / TS", "React / Next", "Node / NestJS", "Vue / Nuxt", "MySQL", "IA & Datos", "Linux / SSH", "Docker"].map((t) => (
+                <span class="px-3 py-1.5 rounded-lg text-sm font-medium bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">
+                  {t}
+                </span>
+              ))
+            }
+          </div>
+
+          <blockquote
+            class="reveal relative mt-8 p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-500/20 dark:border-blue-500/20"
+          >
+            <i class="fas fa-quote-left text-blue-500 absolute -top-3 left-6 text-2xl bg-slate-50 dark:bg-[#05050a] px-2"></i>
+            <p class="text-slate-700 dark:text-slate-200 text-lg italic leading-relaxed">
+              "Donde el código se detiene, la investigación continúa."
+            </p>
+          </blockquote>
+        </div>
       </div>
     </section>
-    <section id="sobre-mi" class="py-24 border-t border-slate-900">
-      <div class="max-w-3xl">
-        <h2 class="text-4xl font-bold mb-8">
-          Sobre <span class="text-blue-500">mi</span>
-        </h2>
 
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Soy <strong class="text-white">Brayan David Avila Orozco</strong>,
-          nacido y forjado en <strong class="text-white"
-            >Montería, Córdoba - Colombia</strong
-          >. Mi historia con el código despertó a los 15 años impulsada por pura
-          curiosidad; desde entonces, lo que empezó como un juego se convirtió
-          en mi vocación. Di mis primeros pasos formales graduándome como <strong
-            class="text-blue-400"
-            >Técnico en Programación de Software en el SENA</strong
-          >, y desde ahí la consola de comandos se volvió mi segundo hogar.
-        </p>
-
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Como estudiante de la <strong class="text-white"
-            >Universidad de Córdoba</strong
-          >, mi enfoque no es solo construir, sino entender el porqué de cada
-          línea. Me apasiona la <strong class="text-blue-400"
-            >docencia técnica</strong
-          >: creo firmemente que la maestría tecnológica se demuestra cuando
-          eres capaz de explicar una arquitectura compleja o un flujo de datos
-          de forma sencilla.
-        </p>
-
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Mi formación técnica se forjó bajo fuego. Aprendí a optimizar recursos
-          en hardware limitado, lo que me llevó a dominar la terminal <strong
-            class="text-white">Linux</strong
-          > (desde Debian hasta la rigurosa instalación manual de <strong
-            class="text-white">Arch</strong
-          >). Esa base pura me permite hoy moverme con fluidez en entornos
-          híbridos con <strong class="text-blue-400">WSL</strong>, gestionar
-          servidores remotos vía <strong class="text-purple-400">SSH</strong>,
-          orquestar servicios en <strong class="text-blue-400">Docker</strong> y automatizar
-          procesos con IA y scripts en Python sin depender de "cajas negras".
-        </p>
-
-        <p class="text-slate-400 text-lg leading-relaxed">
-          Desde levantar un backend robusto hasta procesar analítica de datos o
-          maquetar una interfaz intuitiva, mi compromiso es encontrar la <strong
-            class="text-green-400">mejor solución técnica</strong
-          >, no la más rápida de copiar. Mi portafolio refleja esta filosofía:
-          proyectos que no solo funcionan, sino que tienen detrás un proceso
-          real de investigación. Si el código se detiene, mi investigación
-          continúa.
-        </p>
-      </div>
-    </section>
+    <Contact />
   </main>
 
   <Footer />

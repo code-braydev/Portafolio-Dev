@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 interface Props {
   title: string;
@@ -10,17 +11,18 @@ interface Props {
 
 const {
   title,
-  description = "BrayDev - Full Stack Developer & Technical Educator. Especialista en soluciones eficientes mediante investigación técnica. Si el código se detiene, mi investigación continúa.",
-  image = "/logo.png",
-  keywords = "Brayan Avila, BrayDev, Brayan Desarrollador, Montería, Full Stack Developer, Technical Educator, Astro, React, NestJS, TypeScript, Educación Tecnológica, Universidad de Córdoba",
+  description = "BrayDev — Desarrollador Full Stack con enfoque en IA, datos y Linux. Creo soluciones escalables combinando código de calidad, automatización e infraestructura bien administrada.",
+  image = "/og-banner.png",
+  keywords = "Brayan Avila, BrayDev, Full Stack Developer, Desarrollador Full Stack, IA, Inteligencia Artificial, Datos, Linux, TypeScript, React, Astro, NestJS, Montería, Colombia",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
+const siteName = "BrayDev";
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,18 +30,23 @@ const imageURL = new URL(image, Astro.site);
     <meta name="keywords" content={keywords} />
     <meta name="author" content="Brayan Avila" />
     <meta name="creator" content="BrayDev" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#05050a" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
+    <meta name="color-scheme" content="dark light" />
 
     <link rel="canonical" href={canonicalURL} />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo de BrayDev" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:site_name" content="BrayDev" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="es_CO" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -47,55 +54,103 @@ const imageURL = new URL(image, Astro.site);
     <meta name="twitter:image" content={imageURL} />
     <meta name="twitter:creator" content="@BrayDev" />
 
+    <link rel="icon" type="image/x-icon" href="/logo.ico" />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="apple-touch-icon" href="/logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <script is:inline>
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem("braydev-theme");
+        } catch (e) {}
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = stored || (prefersDark ? "dark" : "dark");
+        if (theme !== "dark") {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
 
     <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Brayan Avila",
-        "alternateName": ["BrayDev", "Brayan Desarrollador"],
-        "url": "https://portfolio.braydev.xyz",
-        "image": "https://portfolio.braydev.xyz/logo.png",
-        "jobTitle": "Full Stack Developer & Technical Educator",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "BrayDev"
+        "name": "Brayan David Avila Orozco",
+        "alternateName": ["BrayDev", "Brayan Avila"],
+        "url": "https://braydev.xyz",
+        "image": "https://braydev.xyz/og-banner.png",
+        "jobTitle": "Full Stack Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montería",
+          "addressRegion": "Córdoba",
+          "addressCountry": "CO"
         },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Universidad de Córdoba"
-        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad de Córdoba"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "SENA"
+          }
+        ],
         "sameAs": [
           "https://github.com/code-braydev",
           "https://www.linkedin.com/in/braydev/"
         ],
-        "description": "Desarrollador Full Stack y Licenciado en formación especializado en soluciones eficientes mediante investigación técnica aplicada."
+        "knowsAbout": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Astro",
+          "Node.js",
+          "NestJS",
+          "Linux",
+          "Docker",
+          "Inteligencia Artificial",
+          "Ingeniería de Datos"
+        ]
       }
     </script>
 
     <title>{title}</title>
   </head>
   <body
-    class="bg-[#0a0a0a] text-white font-['Onest'] selection:bg-blue-500/30 selection:text-white overflow-x-hidden"
+    class="font-['Onest'] bg-slate-50 text-slate-900 dark:bg-[#05050a] dark:text-white selection:bg-blue-500/30 selection:text-white min-h-screen antialiased"
   >
-    <div
-      class="fixed top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.15),rgba(168,85,247,0.05),transparent)]"
-    >
-    </div>
+    <div class="starfield" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+
     <slot />
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>

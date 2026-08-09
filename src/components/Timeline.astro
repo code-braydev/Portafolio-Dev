@@ -1,0 +1,100 @@
+---
+const milestones = [
+  {
+    period: "2022",
+    title: "Ingreso al SENA",
+    description:
+      "El punto de partida en el Técnico en Programación de Software. Fundamentos de JavaScript y SQL (MySQL) y el primer contacto con jQuery: pura base, todavía sin proyectos reales.",
+    tags: ["SENA", "JavaScript", "MySQL", "jQuery"],
+    accent: "border-blue-500",
+  },
+  {
+    period: "2023",
+    title: "Técnico en Programación de Software",
+    description:
+      "Mi primer certificado formal. La base sólida de lógica, SQL y buenas prácticas sobre la que construiría todo lo demás.",
+    tags: ["Título oficial", "Lógica", "SQL"],
+    accent: "border-cyan-500",
+  },
+  {
+    period: "Autodidacta",
+    title: "La etapa de los frameworks",
+    description:
+      "Tras el SENA llegó el hambre de más: descubrí que jQuery estaba quedando obsoleto y me lancé de lleno a los frameworks. React fue el primero, aprendido en YouTube (gracias, midudev).",
+    tags: ["React", "Frameworks", "Autodidacta"],
+    accent: "border-purple-500",
+  },
+  {
+    period: "En curso",
+    title: "Licenciatura en Informática · Universidad de Córdoba",
+    description:
+      "En la universidad profundicé con Vue/Nuxt y llevé Linux al siguiente nivel con electivas de Linux Básico y Linux Avanzado orientado a servidores: máquinas virtuales, Asterisk, cPanel, Apache → nginx y SSH.",
+    tags: ["Unicórdoba", "Vue / Nuxt", "Linux Servers", "Apache / nginx"],
+    accent: "border-violet-500",
+  },
+  {
+    period: "2025 → 2026",
+    title: "MinTIC-UTB · Análisis de Datos · IA",
+    description:
+      "Análisis de Datos Básico (MinTIC-UTB) e IA Básica, tomados durante la universidad — uno en el segundo semestre de 2025 y el otro a inicios de 2026 — más el certificado de Desarrollo con IA (MoureDev).",
+    tags: ["MinTIC", "Análisis de Datos", "IA", "MoureDev"],
+    accent: "border-emerald-500",
+  },
+];
+---
+
+<section id="trayectoria" class="py-24 border-t border-slate-200 dark:border-slate-900">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="reveal mb-14">
+      <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">// historia</span>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2 flex items-center gap-4">
+        <i class="fas fa-route text-blue-500"></i> Trayectoria & Formación
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-3 max-w-2xl">
+        De la curiosidad a los 15 años hasta hoy: un camino construido con
+        investigación, constancia y formación formal.
+      </p>
+    </div>
+
+    <div class="relative ml-4 sm:ml-6 space-y-10 border-l-2 border-slate-200 dark:border-slate-800">
+      {
+        milestones.map((m) => (
+          <div class="reveal relative pl-8 sm:pl-10">
+            <span
+              class={`absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-white dark:bg-slate-900 border-4 ${m.accent}`}
+              aria-hidden="true"
+            ></span>
+            <div
+              class="group rounded-2xl p-6 bg-white/70 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-blue-300/70 dark:hover:border-blue-500/40"
+            >
+              <div class="flex flex-wrap items-center gap-3 mb-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wide"
+                >
+                  {m.period}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                {m.title}
+              </h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-2">
+                {m.description}
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                {
+                  m.tags.map((tag) => (
+                    <span
+                      class="px-2.5 py-1 text-[11px] font-bold bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 rounded-lg border border-slate-200 dark:border-slate-700 uppercase tracking-wide"
+                    >
+                      {tag}
+                    </span>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

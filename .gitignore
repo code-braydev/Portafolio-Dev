@@ -20,5 +20,11 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Windows Zone.Identifier metadata
+*.Zone.Identifier
+
 # jetbrains setting folder
 .idea/
+
+# local editor settings
+.vscode/

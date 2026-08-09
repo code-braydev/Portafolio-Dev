@@ -1,0 +1,28 @@
+{
+  "name": "BrayDev | Full Stack Developer",
+  "short_name": "BrayDev",
+  "description": "Portafolio de Brayan Avila — Desarrollador Full Stack con enfoque en IA, datos y Linux.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "154x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
