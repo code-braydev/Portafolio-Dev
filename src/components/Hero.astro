@@ -18,8 +18,10 @@ const stats = [
   id="inicio"
   class="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-16"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
-    <div class="space-y-6 text-center lg:text-left">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 w-full grid lg:grid-cols-2 gap-12 items-center"
+  >
+    <div class="space-y-6 text-center lg:text-left order-2 lg:order-1">
       <div class="reveal">
         <span
           class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-sm font-medium"
@@ -28,31 +30,53 @@ const stats = [
             <span
               class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
             ></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            <span
+              class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"
+            ></span>
           </span>
           Disponible para nuevos proyectos
         </span>
       </div>
 
       <div class="reveal">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight">
-          Hola, soy <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-400 to-purple-500">Brayan Avila</span>
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight"
+        >
+          Hola, soy <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-indigo-400 to-purple-500"
+            >Brayan Avila</span
+          >
         </h1>
       </div>
 
-      <div class="reveal flex items-center justify-center lg:justify-start gap-2 min-h-[2.5rem]">
-        <span class="text-xl md:text-2xl font-semibold text-slate-500 dark:text-slate-400">
-          &lt; <span id="rotating-role" class="rotating text-slate-800 dark:text-slate-200 font-mono">{roles[0]}</span> &gt;
+      <div
+        class="reveal flex items-center justify-center lg:justify-start gap-2 min-h-10"
+      >
+        <span
+          class="text-xl md:text-2xl font-semibold text-slate-500 dark:text-slate-400"
+        >
+          &lt; <span
+            id="rotating-role"
+            class="rotating text-slate-800 dark:text-slate-200 font-mono"
+            >{roles[0]}</span
+          > &gt;
         </span>
         <span class="caret text-blue-500" aria-hidden="true"></span>
       </div>
 
       <div class="reveal">
-        <p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed">
-          Desarrollador <strong class="text-slate-900 dark:text-white">Full Stack</strong> que
-          combina código de calidad, <strong class="text-blue-600 dark:text-blue-400">inteligencia artificial</strong> e
-          <strong class="text-purple-600 dark:text-purple-400">infraestructura Linux</strong> para
-          construir soluciones escalables de punta a punta.
+        <p
+          class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed"
+        >
+          Desarrollador <strong class="text-slate-900 dark:text-white"
+            >Full Stack</strong
+          > que combina código de calidad, <strong
+            class="text-blue-600 dark:text-blue-400"
+            >inteligencia artificial</strong
+          > e
+          <strong class="text-purple-600 dark:text-purple-400"
+            >infraestructura Linux</strong
+          > para construir soluciones escalables de punta a punta.
         </p>
       </div>
 
@@ -75,9 +99,9 @@ const stats = [
           href="https://ko-fi.com/braydev"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full sm:w-auto px-8 py-3.5 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-2xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2"
+          class="w-auto px-8 py-3.5 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-2xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2"
         >
-          <i class="fas fa-mug-hot text-sm"></i> Invítame un café
+          <i class="fas fa-mug-hot text-sm"></i> Apóyame
         </a>
       </div>
 
@@ -86,26 +110,33 @@ const stats = [
       >
         {
           stats.map((s) => (
-            <div
-              class="px-4 py-3 rounded-2xl bg-slate-100/70 dark:bg-white/5 border border-slate-200 dark:border-slate-800 text-center"
-            >
-              <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            <div class="px-4 py-3 rounded-2xl bg-slate-100/70 dark:bg-white/5 border border-slate-200 dark:border-slate-800 text-center">
+              <div class="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-purple-500">
                 {s.value}
               </div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{s.label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                {s.label}
+              </div>
             </div>
           ))
         }
       </div>
     </div>
 
-    <div class="reveal flex justify-center lg:justify-end relative">
+    <div
+      class="reveal flex justify-center lg:justify-end relative order-1 lg:order-2"
+    >
       <div
-        class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-purple-500/15 to-cyan-500/10 blur-[90px] rounded-full"
+        class="absolute inset-0 bg-linear-to-tr from-blue-500/20 via-purple-500/15 to-cyan-500/10 blur-[90px] rounded-full"
         aria-hidden="true"
-      ></div>
+      >
+      </div>
       <div class="relative float-slow">
-        <div class="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-400 opacity-60 blur-sm" aria-hidden="true"></div>
+        <div
+          class="absolute -inset-1 rounded-[2.5rem] bg-linear-to-tr from-blue-500 via-purple-500 to-cyan-400 opacity-60 blur-sm"
+          aria-hidden="true"
+        >
+        </div>
         <img
           src="/me.jpg"
           alt="Brayan Avila"
@@ -122,18 +153,17 @@ const stats = [
     </div>
   </div>
 
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-600 animate-bounce hidden md:block">
-    <a href="#proyectos" aria-label="Bajar a proyectos"><i class="fas fa-chevron-down"></i></a>
+  <div
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-600 animate-bounce hidden md:block"
+  >
+    <a href="#proyectos" aria-label="Bajar a proyectos"
+      ><i class="fas fa-chevron-down"></i></a
+    >
   </div>
 </section>
 
-<script is:inline type="application/json" id="rotating-roles">
-  {JSON.stringify(roles)}
-</script>
-
-<script is:inline>
+<script is:inline define:vars={{ roles }}>
   const roleEl = document.getElementById("rotating-role");
-  const roles = JSON.parse(document.getElementById("rotating-roles").textContent);
   let index = 0;
 
   setInterval(() => {

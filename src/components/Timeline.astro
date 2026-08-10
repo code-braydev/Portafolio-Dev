@@ -43,10 +43,15 @@ const milestones = [
 ];
 ---
 
-<section id="trayectoria" class="py-24 border-t border-slate-200 dark:border-slate-900">
+<section
+  id="trayectoria"
+  class="py-24 border-t border-slate-200 dark:border-slate-900"
+>
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="reveal mb-14">
-      <span class="text-blue-600 dark:text-blue-400 font-mono text-sm">// historia</span>
+      <span class="text-blue-600 dark:text-blue-400 font-mono text-sm"
+        >// historia</span
+      >
       <h2 class="text-3xl sm:text-4xl font-bold mt-2 flex items-center gap-4">
         <i class="fas fa-route text-blue-500"></i> Trayectoria & Formación
       </h2>
@@ -56,21 +61,19 @@ const milestones = [
       </p>
     </div>
 
-    <div class="relative ml-4 sm:ml-6 space-y-10 border-l-2 border-slate-200 dark:border-slate-800">
+    <div
+      class="relative ml-4 sm:ml-6 space-y-10 border-l-2 border-slate-200 dark:border-slate-800"
+    >
       {
         milestones.map((m) => (
           <div class="reveal relative pl-8 sm:pl-10">
             <span
-              class={`absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-white dark:bg-slate-900 border-4 ${m.accent}`}
+              class={`absolute -left-2.25 top-1.5 h-4 w-4 rounded-full bg-white dark:bg-slate-900 border-4 ${m.accent}`}
               aria-hidden="true"
-            ></span>
-            <div
-              class="group rounded-2xl p-6 bg-white/70 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-blue-300/70 dark:hover:border-blue-500/40"
-            >
+            />
+            <div class="group rounded-2xl p-6 bg-white/70 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-blue-300/70 dark:hover:border-blue-500/40">
               <div class="flex flex-wrap items-center gap-3 mb-2">
-                <span
-                  class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wide"
-                >
+                <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wide">
                   {m.period}
                 </span>
               </div>
@@ -81,15 +84,11 @@ const milestones = [
                 {m.description}
               </p>
               <div class="flex flex-wrap gap-2 mt-4">
-                {
-                  m.tags.map((tag) => (
-                    <span
-                      class="px-2.5 py-1 text-[11px] font-bold bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 rounded-lg border border-slate-200 dark:border-slate-700 uppercase tracking-wide"
-                    >
-                      {tag}
-                    </span>
-                  ))
-                }
+                {m.tags.map((tag) => (
+                  <span class="px-2.5 py-1 text-[11px] font-bold bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 rounded-lg border border-slate-200 dark:border-slate-700 uppercase tracking-wide">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

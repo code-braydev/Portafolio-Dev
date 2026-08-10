@@ -22,9 +22,10 @@ const { title, description, tags, link, isLab = false, icon } = Astro.props;
   } hover:shadow-[0_24px_70px_-20px_rgba(59,130,246,0.25)]`}
 >
   <div
-    class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+    class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-blue-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
     aria-hidden="true"
-  ></div>
+  >
+  </div>
 
   <div class="flex justify-between items-start mb-5">
     <div class="flex items-center gap-3">
@@ -33,7 +34,15 @@ const { title, description, tags, link, isLab = false, icon } = Astro.props;
           isLab ? "text-slate-500 dark:text-slate-400" : "text-blue-500"
         }`}
       >
-        {icon ? <span>{icon}</span> : isLab ? <i class="fas fa-flask"></i> : <i class="fas fa-rocket"></i>}
+        {
+          icon ? (
+            <span>{icon}</span>
+          ) : isLab ? (
+            <i class="fas fa-flask" />
+          ) : (
+            <i class="fas fa-rocket" />
+          )
+        }
       </div>
       <div>
         {
