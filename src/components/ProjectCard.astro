@@ -47,7 +47,7 @@ const { title, description, tags, link, isLab = false, icon } = Astro.props;
       <div>
         {
           isLab && (
-            <span class="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest block">
+            <span class="text-[10px] font-mono text-slate-600 dark:text-slate-300 uppercase tracking-widest block">
               Fundamentos / Code
             </span>
           )
@@ -66,9 +66,9 @@ const { title, description, tags, link, isLab = false, icon } = Astro.props;
 
     {
       isLab ? (
-        <i class="fab fa-github text-xl text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-white transition" />
+        <i class="fab fa-github text-xl text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-white transition" />
       ) : (
-        <i class="fas fa-arrow-up-right-from-square text-slate-400 dark:text-slate-500 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        <i class="fas fa-arrow-up-right-from-square text-slate-600 dark:text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
       )
     }
   </div>

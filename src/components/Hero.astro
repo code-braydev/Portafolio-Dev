@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import me from "../assets/me.jpg";
+
 const roles = [
   "Full Stack Developer",
   "Enfoque en IA & Datos",
@@ -53,7 +56,7 @@ const stats = [
         class="reveal flex items-center justify-center lg:justify-start gap-2 min-h-10"
       >
         <span
-          class="text-xl md:text-2xl font-semibold text-slate-500 dark:text-slate-400"
+          class="text-xl md:text-2xl font-semibold text-slate-600 dark:text-slate-300"
         >
           &lt; <span
             id="rotating-role"
@@ -114,7 +117,7 @@ const stats = [
               <div class="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-purple-500">
                 {s.value}
               </div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              <div class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
                 {s.label}
               </div>
             </div>
@@ -137,11 +140,14 @@ const stats = [
           aria-hidden="true"
         >
         </div>
-        <img
-          src="/me.jpg"
+        <Image
+          src={me}
           alt="Brayan Avila"
-          width="1200"
-          height="1200"
+          width={768}
+          height={768}
+          widths={[256, 320, 384, 512, 768]}
+          sizes="(min-width: 1280px) 384px, (min-width: 640px) 320px, 256px"
+          priority
           class="relative w-64 h-64 sm:w-80 sm:h-80 xl:w-96 xl:h-96 object-cover rounded-[2.5rem] rotate-2 border-4 border-slate-900/20 dark:border-white/10 glow-pulse hover:rotate-0 transition-all duration-500"
         />
         <div
@@ -154,7 +160,7 @@ const stats = [
   </div>
 
   <div
-    class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-600 animate-bounce hidden md:block"
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 dark:text-slate-400 animate-bounce hidden md:block"
   >
     <a href="#proyectos" aria-label="Bajar a proyectos"
       ><i class="fas fa-chevron-down"></i></a
